@@ -28,3 +28,11 @@ Actualmente, el proyecto está en una fase inicial de desarrollo, y varias funci
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/tu-usuario/mokepon.git
+2. Abre el archivo **index.html** en tu navegador.
+3. Explora las funcionalidades actuales.
+
+---
+
+## Próximos pasos
+- Mejorar el diseño y estilo del juego.
+- Agregar más lógica al sistema de combate.
