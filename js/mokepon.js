@@ -10,10 +10,16 @@ function iniciarJuego() {
   let botonFuego = document.getElementById("boton-fuego");
   let botonAgua = document.getElementById("boton-agua");
   let botonTierra = document.getElementById("boton-tierra");
+  let botonReiniciar = document.getElementById("boton-reiniciar");
 
   botonFuego.addEventListener("click", ataqueFuego);
   botonAgua.addEventListener("click", ataqueAgua);
   botonTierra.addEventListener("click", ataqueTierra);
+  // botonFuego.disabled = true;
+  // botonAgua.disabled = true;
+  // botonTierra.disabled = true;
+  botonReiniciar.addEventListener("click", reiniciarJuego);
+
 }
 
 function ataqueFuego() {
@@ -48,7 +54,13 @@ function combate() {
   let spanVidasJugador = document.getElementById("vidas-jugador");
 
   if (vidasEnemigo == 0 || vidasJugador == 0) {
-      alert("Juego terminado");
+      if (vidasEnemigo == 0) {
+        alert("Ganaste el juego! ��");
+        reiniciarJuego();
+      } else {
+       alert("Perdiste el juego! ��");
+        reiniciarJuego();
+      }     
   }else{
   if (ataqueJugador == ataqueEnemigo) {
         crearMensaje("Empate!");
@@ -115,6 +127,10 @@ function seleccionarMascotaEnemigo() {
   } else if (ataqueAleatorio == 3) {
     spanMascotaEnemigo.innerHTML = "Ratigueya";
   }
+}
+
+function reiniciarJuego() {
+location.reload();
 }
 
 function aleatorio(min, max) {
