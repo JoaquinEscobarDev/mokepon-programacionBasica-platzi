@@ -1,5 +1,8 @@
 let ataqueJugador;
 let ataqueEnemigo;
+let vidasJugador = 3;
+let vidasEnemigo = 3;
+
 function iniciarJuego() {
   let botonMascotaJugador = document.getElementById("boton-mascota");
   botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
@@ -40,30 +43,42 @@ function aleatorioEnemigo() {
   combate();
 }
 
-function combate() {    
-        
+function combate() {
+  let spanVidasEnemigo = document.getElementById("vidas-enemigo");
+  let spanVidasJugador = document.getElementById("vidas-jugador");
 
-    if(ataqueJugador == ataqueEnemigo){
+  if (vidasEnemigo == 0 || vidasJugador == 0) {
+      alert("Juego terminado");
+  }else{
+  if (ataqueJugador == ataqueEnemigo) {
         crearMensaje("Empate!");
-    }else if(ataqueJugador == "FUEGO" && ataqueEnemigo == "TIERRA"){
-        crearMensaje("Ganaste! ��");        
-    }else if(ataqueJugador == "AGUA" && ataqueEnemigo == "FUEGO"){
+      } else if (ataqueJugador == "FUEGO" && ataqueEnemigo == "TIERRA") {
         crearMensaje("Ganaste! ��");
-    }else if(ataqueJugador == "TIERRA" && ataqueEnemigo == "AGUA"){
+        vidasEnemigo--;
+        spanVidasEnemigo.innerHTML = vidasEnemigo;
+      } else if (ataqueJugador == "AGUA" && ataqueEnemigo == "FUEGO") {
         crearMensaje("Ganaste! ��");
-    }else{
+        vidasEnemigo--;
+        spanVidasEnemigo.innerHTML = vidasEnemigo;
+      } else if (ataqueJugador == "TIERRA" && ataqueEnemigo == "AGUA") {
+        crearMensaje("Ganaste! ��");
+        vidasEnemigo--;
+        spanVidasEnemigo.innerHTML = vidasEnemigo;
+      } else {
         crearMensaje("Perdiste! ��");
-        
-    }
+        vidasJugador--;
+        spanVidasJugador.innerHTML = vidasJugador;
+      }
+
+  }
 }
 
 function crearMensaje(result) {
-    let sectionMensaje = document.getElementById("mensajes");
+  let sectionMensaje = document.getElementById("mensajes");
 
   let p = document.createElement("p");
-  p.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", las mascota del enemigo atacó con " + ataqueEnemigo +" - "+ result + "!";
+  p.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", las mascota del enemigo atacó con " + ataqueEnemigo + " - " + result + "!";
   sectionMensaje.appendChild(p);
-
 }
 
 function seleccionarMascotaJugador() {
@@ -82,11 +97,7 @@ function seleccionarMascotaJugador() {
     alert("Selecciona una mascota");
   }
 
-  if (
-    inputHipodoge.checked ||
-    inputCapipepo.checked ||
-    inputRatigueya.checked
-  ) {
+  if (inputHipodoge.checked || inputCapipepo.checked || inputRatigueya.checked) {
     seleccionarMascotaEnemigo();
   } else {
     alert("Debes seleccionar una mascota");
