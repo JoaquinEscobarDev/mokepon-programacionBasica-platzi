@@ -14,7 +14,7 @@ Selecciona tu mascota, lucha contra el enemigo y demuestra tus habilidades estra
 
 - **HTML**: Base del proyecto con las secciones para selección de mascota, combate y reinicio.
 - **JavaScript**: Lógica del juego, manejo de ataques, cálculo de resultados y actualización dinámica de la interfaz.
-- **CSS**: Pendiente de implementación.
+- **CSS**: Diseño atractivo con movimiento.
 
 ## 📜 Cómo Jugar
 
@@ -35,3 +35,6 @@ Selecciona tu mascota, lucha contra el enemigo y demuestra tus habilidades estra
 - Incorporar una interfaz más amigable.
 
 ¡Diviértete jugando MOKEPON! 🎮
+Ingresa y prueba el juego con el siguiente link : 
+**https://joaquinescobardev.github.io/mokepon-programacionBasica-platzi/** 
+Se utilizo el mismo github como sitio de Hosting
