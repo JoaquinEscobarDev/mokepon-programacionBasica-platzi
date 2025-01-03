@@ -4,6 +4,11 @@ let vidasJugador = 3;
 let vidasEnemigo = 3;
 
 function iniciarJuego() {
+  let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
+  let sectionReiniciar = document.getElementById("boton-reiniciar");
+  sectionSeleccionarAtaque.style.display = "none";
+  sectionReiniciar.style.display = "none";
+
   let botonMascotaJugador = document.getElementById("boton-mascota");
   botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
 
@@ -99,20 +104,42 @@ function seleccionarMascotaJugador() {
   let inputRatigueya = document.getElementById("ratigueya");
   let spanMascotaJugador = document.getElementById("mascota-jugador");
 
-  if (inputHipodoge.checked) {
-    spanMascotaJugador.innerHTML = "Hipodoge";
-  } else if (inputCapipepo.checked) {
-    spanMascotaJugador.innerHTML = "Capipepo";
-  } else if (inputRatigueya.checked) {
-    spanMascotaJugador.innerHTML = "Ratigueya";
-  } else {
-    alert("Selecciona una mascota");
-  }
+  if(inputCapipepo.checked || inputHipodoge.checked || inputRatigueya.checked) {
+    let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
+    sectionSeleccionarAtaque.style.display = "block";
+    if (inputHipodoge.checked) {
+      spanMascotaJugador.innerHTML = "Hipodoge";
 
-  if (inputHipodoge.checked || inputCapipepo.checked || inputRatigueya.checked) {
-    seleccionarMascotaEnemigo();
-  } else {
-    alert("Debes seleccionar una mascota");
+      let sectionSeleccionarMascota = document.getElementById("seleccionar-mascota");
+      let sectionReiniciar = document.getElementById("boton-reiniciar");
+      sectionSeleccionarMascota.style.display = "none";
+      sectionReiniciar.style.display = "block";
+
+    } else if (inputCapipepo.checked) {
+      spanMascotaJugador.innerHTML = "Capipepo";
+
+      let sectionSeleccionarMascota = document.getElementById("seleccionar-mascota");
+      let sectionReiniciar = document.getElementById("boton-reiniciar");
+      sectionSeleccionarMascota.style.display = "none";
+      sectionReiniciar.style.display = "block";
+
+    } else if (inputRatigueya.checked) {
+      spanMascotaJugador.innerHTML = "Ratigueya";
+
+      let sectionSeleccionarMascota = document.getElementById("seleccionar-mascota");
+      let sectionReiniciar = document.getElementById("boton-reiniciar");
+      sectionSeleccionarMascota.style.display = "none";
+      sectionReiniciar.style.display = "block";
+
+    } else {
+      alert("Selecciona una mascota");
+    }
+  
+    if (inputHipodoge.checked || inputCapipepo.checked || inputRatigueya.checked) {
+      seleccionarMascotaEnemigo();
+    } else {
+      alert("Debes seleccionar una mascota");
+    }
   }
 }
 
